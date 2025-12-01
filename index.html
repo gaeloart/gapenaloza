@@ -1,279 +1,416 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="author" content="solrac">
-    <meta name="description" content="My Projects TW 2">
-    <meta name="keywords" content="HTML, CSS, JS, Bootstrap">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Perfil GitHub</title>
-    <link rel="icon" type="image/x-icon" href="./images/l">
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-    <style>
-        :root {
-            --vino: #800020;
-            --negro: #000000;
-            --blanco: #ffffff;
-            --gris: #f0f0f0;
-            --borde: 3px solid var(--negro);
-            --sombra: 6px 6px 0px var(--negro);
-        }
-
-        body {
-            font-family: "Courier New", Courier, monospace;
-            background-color: var(--blanco);
-            color: var(--negro);
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-        }
-
-        * {
-            border-radius: 0 !important;
-        }
-
-        a { text-decoration: none; color: inherit; }
-
-        .navbar {
-            background-color: var(--negro) !important;
-            border-bottom: var(--borde);
-            padding: 1rem;
-        }
-
-        .navbar-brand {
-            color: var(--blanco) !important;
-            font-size: 1.5rem;
-            background: var(--vino);
-            padding: 5px 15px;
-            border: 2px solid var(--blanco);
-        }
-
-        .nav-link {
-            color: var(--blanco) !important;
-            text-transform: uppercase;
-            font-weight: bold;
-            border: 1px solid transparent;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            background-color: var(--vino);
-            border: 1px solid var(--blanco);
-            color: var(--blanco) !important;
-        }
-
-        section {
-            padding: 4rem 0;
-            border-bottom: var(--borde);
-        }
-
-        .seccion-titulo {
-            font-size: 3rem;
-            background-color: var(--negro);
-            color: var(--blanco);
-            display: inline-block;
-            padding: 10px 20px;
-            margin-bottom: 2rem;
-            transform: rotate(-2deg);
-        }
-
-        .section-oscura {
-            background-color: var(--vino);
-            color: var(--blanco);
-        }
-        .section-oscura .seccion-titulo {
-            background-color: var(--blanco);
-            color: var(--negro);
-        }
-
-        .myclass {
-            background-color: var(--gris);
-            display: flex;
-            flex-wrap: wrap;
-            border-bottom: var(--borde);
-        }
-        .myclass-main {
-            flex: 1;
-            padding: 3rem;
-            /* antes estaba border-right; lo mantenemos opcional */
-            border-right: var(--borde);
-            min-width: 300px;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        .myclass-pic {
-            border: var(--borde);
-            box-shadow: var(--sombra);
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
-        .myclass-label {
-            flex: 1;
-            background: var(--negro);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .myclass-imagen {
-            filter: grayscale(100%) contrast(120%);
-            transition: 0.3s;
-            width: 80%;
-            max-width: 300px;
-            object-fit: cover;
-            margin: auto;
-        }
-        .myclass-imagen:hover {
-            filter: grayscale(0%);
-        }
-
-        .experiencia-columna {
-            border: var(--borde);
-            padding: 2rem;
-            background: var(--blanco);
-            transition: 0.2s;
-        }
-        .experiencia-columna:hover {
-            background: var(--negro);
-            color: var(--vino);
-        }
-        .experiencia-columna i {
-            font-size: 3rem;
-            color: var(--vino);
-        }
-        .badge {
-            background-color: var(--vino) !important;
-            border: 2px solid var(--negro);
-            color: var(--blanco);
-            font-size: 0.9rem;
-            margin: 2px;
-        }
-
-        .proyecto {
-            border: var(--borde);
-            margin-bottom: 30px;
-            position: relative;
-            background: var(--negro);
-        }
-        .proyecto img {
-            width: 100%;
-            filter: grayscale(100%);
-            transition: filter 0.3s;
-        }
-        .proyecto:hover img {
-            filter: grayscale(0%);
-        }
-        .overlay {
-            background: rgba(128, 0, 32, 0.9);
-            color: white;
-            padding: 10px;
-            text-align: center;
-            border-top: var(--borde);
-        }
-
-        .btn {
-            border: var(--borde);
-            font-weight: bold;
-            text-transform: uppercase;
-            box-shadow: var(--sombra);
-            transition: all 0.1s;
-            margin-top: 20px;
-        }
-        .btn-info {
-            background-color: var(--blanco);
-            color: var(--negro);
-        }
-        .btn:hover {
-            transform: translate(4px, 4px);
-            box-shadow: 2px 2px 0px var(--negro);
-            background-color: var(--vino);
-            color: var(--blanco);
-            border-color: var(--negro);
-        }
-        .btn:active {
-            transform: translate(6px, 6px);
-            box-shadow: none;
-        }
-
-        .list-group-item {
-            border: var(--borde);
-            border-bottom: none;
-            margin-bottom: 0;
-            font-weight: bold;
-        }
-        .list-group-item:last-child { border-bottom: var(--borde); }
-        .list-group-item:hover {
-            background-color: var(--vino);
-            color: var(--blanco);
-        }
-        .card { border: none; background: transparent; }
-        .card-header {
-            background: var(--negro);
-            color: var(--blanco);
-            border: var(--borde);
-            font-size: 1.5rem;
-            padding: 1rem;
-        }
-
-        footer {
-            border-top: var(--borde);
-            padding: 3rem;
-            background-color: var(--gris);
-        }
-        .icons-sn i {
-            font-size: 2rem;
-            margin: 0 10px;
-            color: var(--negro);
-        }
-        .icons-sn i:hover { color: var(--vino); }
-    </style>
+<meta charset="UTF-8">
+<meta name="author" content="solrac">
+<meta name="description" content="My Projects TW 2">
+<meta name="keywords" content="HTML, CSS, JS, Bootstrap">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOLRAC // PROFILE</title>
+<link rel="icon" type="image/x-icon" href="./images/l">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<style>
+:root {
+--vino: #800020;
+--negro: #000000;
+--blanco: #ffffff;
+--gris: #f0f0f0;
+--borde: 3px solid var(--negro);
+--sombra: 6px 6px 0px var(--negro);
+}
+body {
+font-family: "Courier New", Courier, monospace;
+background-color: var(--blanco);
+color: var(--negro);
+overflow-x: hidden;
+}
+h1, h2, h3, h4, h5, h6 {
+font-weight: 900;
+text-transform: uppercase;
+letter-spacing: -1px;
+}
+* {
+border-radius: 0 !important;
+}
+a {
+text-decoration: none;
+color: inherit;
+}
+.navbar {
+background-color: var(--negro) !important;
+border-bottom: var(--borde);
+padding: 1rem;
+}
+.navbar-brand {
+color: var(--blanco) !important;
+font-size: 1.5rem;
+background: var(--vino);
+padding: 5px 15px;
+border: 2px solid var(--blanco);
+}
+.nav-link {
+color: var(--blanco) !important;
+text-transform: uppercase;
+font-weight: bold;
+border: 1px solid transparent;
+}
+.nav-link:hover, .nav-link.active {
+background-color: var(--vino);
+border: 1px solid var(--blanco);
+color: var(--blanco) !important;
+}
+section {
+padding: 4rem 0;
+border-bottom: var(--borde);
+}
+.seccion-titulo {
+font-size: 3rem;
+background-color: var(--negro);
+color: var(--blanco);
+display: inline-block;
+padding: 10px 20px;
+margin-bottom: 2rem;
+transform: rotate(-2deg);
+}
+.section-oscura {
+background-color: var(--vino);
+color: var(--blanco);
+}
+.section-oscura .seccion-titulo {
+background-color: var(--blanco);
+color: var(--negro);
+}
+.myclass {
+background-color: var(--gris);
+display: flex;
+flex-wrap: wrap;
+border-bottom: var(--borde);
+}
+.myclass-main {
+flex: 1;
+padding: 3rem;
+border-right: var(--borde);
+min-width: 300px;
+}
+.myclass-label {
+flex: 1;
+background: var(--negro);
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+}
+.myclass-pic {
+border: var(--borde);
+box-shadow: var(--sombra);
+width: 200px;
+height: 200px;
+object-fit: cover;
+margin-bottom: 20px;
+}
+.myclass-imagen {
+filter: grayscale(100%) contrast(120%);
+opacity: 0.8;
+}
+.experiencia-columna {
+border: var(--borde);
+padding: 2rem;
+background: var(--blanco);
+transition: 0.2s;
+}
+.experiencia-columna:hover {
+background: var(--negro);
+color: var(--vino);
+}
+.experiencia-columna i {
+font-size: 3rem;
+color: var(--vino);
+}
+.badge {
+background-color: var(--vino) !important;
+border: 2px solid var(--negro);
+color: var(--blanco);
+font-size: 0.9rem;
+margin: 2px;
+}
+.proyecto {
+border: var(--borde);
+margin-bottom: 30px;
+position: relative;
+background: var(--negro);
+}
+.proyecto img {
+width: 100%;
+filter: grayscale(100%);
+transition: filter 0.3s;
+}
+.proyecto:hover img {
+filter: grayscale(0%);
+}
+.overlay {
+background: rgba(128, 0, 32, 0.9);
+color: white;
+padding: 10px;
+text-align: center;
+border-top: var(--borde);
+}
+.btn {
+border: var(--borde);
+font-weight: bold;
+text-transform: uppercase;
+box-shadow: var(--sombra);
+transition: all 0.1s;
+margin-top: 20px;
+}
+.btn-info {
+background-color: var(--blanco);
+color: var(--negro);
+}
+.btn:hover {
+transform: translate(4px, 4px);
+box-shadow: 2px 2px 0px var(--negro);
+background-color: var(--vino);
+color: var(--blanco);
+border-color: var(--negro);
+}
+.btn:active {
+transform: translate(6px, 6px);
+box-shadow: none;
+}
+.list-group-item {
+border: var(--borde);
+border-bottom: none;
+margin-bottom: 0;
+font-weight: bold;
+}
+.list-group-item:last-child {
+border-bottom: var(--borde);
+}
+.list-group-item:hover {
+background-color: var(--vino);
+color: var(--blanco);
+}
+.card {
+border: none;
+background: transparent;
+}
+.card-header {
+background: var(--negro);
+color: var(--blanco);
+border: var(--borde);
+font-size: 1.5rem;
+padding: 1rem;
+}
+footer {
+border-top: var(--borde);
+padding: 3rem;
+background-color: var(--gris);
+}
+.icons-sn i {
+font-size: 2rem;
+margin: 0 10px;
+color: var(--negro);
+}
+.icons-sn i:hover {
+color: var(--vino);
+}
+</style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="https://github.com/tuusuario" target="_blank">
-                GITHUB
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbar-toggler">
-                <ul class="navbar-nav ms-auto d-flex align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="#aboutme">Sobre mí</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Proyectos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#references">Referencias</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contactme">Contacto</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <section class="myclass p-0">
-        <div class="myclass-main">
-            <img class="myclass-pic" src="./images/pink.jpeg" alt="My selfie">
-            <h1 style="font-size: 4rem; line-height: 0.9;">HOLA, SOY<br><span style="color: var(--vino); background: black; padding: 0 10px;">GAELO</span></h1>
-            <h2 class="mt-3">El Ingeniero 😎</h2>
-        </div>
-        <div class="myclass-label d-none d-md-flex">
-            <img class="myclass-imagen" src="./images/walter.jpeg" alt="think twice code once">
-        </div>
-    </section>
-
-    <!-- (El resto de tus secciones About me, Skill set, Proyectos, etc., déjalas tal cual las tenías) -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./js/main.js"></script>
+<nav class="navbar navbar-expand-md navbar-dark">
+<div class="container-fluid">
+<a class="navbar-brand" href="#"> 
+SOLRAC_DEV 
+</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbar-toggler">
+<ul class="navbar-nav ms-auto d-flex align-items-center">
+<li class="nav-item"><a class="nav-link" href="#aboutme">Sobre mí</a></li>
+<li class="nav-item"><a class="nav-link" href="#projects">Proyectos</a></li>
+<li class="nav-item"><a class="nav-link" href="#references">Referencias</a></li>
+<li class="nav-item"><a class="nav-link" href="#contactme">Contacto</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="myclass p-0">
+<div class="myclass-main d-flex flex-column justify-content-center align-items-start">
+<img class="myclass-pic" src="./images/pink.jpeg" alt="My selfie">
+<h1 style="font-size: 4rem; line-height: 0.9;">HOLA, SOY<br><span style="color: var(--vino); background: black; padding: 0 10px;">GAELO</span></h1>
+<h2 class="mt-3">El Ingeniero 😎</h2>
+</div>
+<div class="myclass-label d-none d-md-flex">
+<img class="myclass-imagen img-fluid" src="./images/walter.jpeg" alt="think twice code once" style="height: 100%; object-fit: cover; width: 100%;">
+</div>
+</section>
+<section id="aboutme" class="about-me section-oscura">
+<div class="container">
+<h2 class="seccion-titulo">Conoce a Solrac</h2>
+<p class="lead" style="font-weight: bold; border-left: 5px solid white; padding-left: 20px;">
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere quod, dolorum rerum quas dolorem obcaecati eos nobis id.
+</p>
+</div>
+</section>
+<section class="experiencia section-clara">
+<div class="container text-center">
+<h2 class="seccion-titulo mb-5" style="background: var(--vino);">SKILL_SET</h2>
+<div class="row g-0">
+<div class="experiencia-columna col-12 col-md-4">
+<p class="columna h3 mb-4">PROGRAMMING</p>
+<i class="bi-braces mb-3 d-block"></i>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+<div class="badge-contenedor mt-3">
+<span class="badge">PHP</span>
+<span class="badge">C</span>
+<span class="badge">Java</span>
+</div>
+</div>
+<div class="experiencia-columna col-12 col-md-4">
+<p class="columna h3 mb-4">DESIGN</p>
+<i class="bi-window-desktop mb-3 d-block"></i>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+<div class="badge-contenedor mt-3">
+<span class="badge">UX</span>
+<span class="badge">Usability</span>
+<span class="badge">UI</span>
+</div>
+</div>
+<div class="experiencia-columna col-12 col-md-4">
+<p class="columna h3 mb-4">MANAGEMENT</p>
+<i class="bi-person-gear mb-3 d-block"></i>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+<div class="badge-contenedor mt-3">
+<span class="badge">Scrum</span>
+<span class="badge">Trello</span>
+<span class="badge">MVC</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="projects" class="proyectos section-clara d-flex flex-column align-items-center">
+<h2 class="seccion-titulo">Mis Proyectos</h2>
+<div class="container text-center proyectos-contenedor mt-4">
+<div class="row">
+<div class="col-12 col-md-6 col-lg-4">
+<div class="proyecto">
+<img src="./images/pro1.jpg" alt="Project 1">
+<div class="overlay">
+<p class="m-0 fw-bold">MI PRIMERA CHAMBA</p>
+<div class="icons-project mt-2">
+<a href="" target="_blank"><i class="bi-github text-white"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-lg-4">
+<div class="proyecto">
+<img src="./images/pro2.png" alt="Project 2">
+<div class="overlay">
+<p class="m-0 fw-bold">SYSTEM_32</p>
+<div class="icons-project mt-2">
+<a href="" target="_blank"><i class="bi-github text-white"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-lg-4">
+<div class="proyecto">
+<img src="./images/pro3.jpeg" alt="Project 3">
+<div class="overlay">
+<p class="m-0 fw-bold">DATA_BASE_V1</p>
+<div class="icons-project mt-2">
+<a href="" target="_blank"><i class="bi-github text-white"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a href="" target="_blank" class="text-decoration-none">
+<button type="button" class="btn btn-lg">
+MÁS CHAMBAS <i class="bi-arrow-right-circle ms-2"></i>
+</button>
+</a>
+</section>
+<section class="tips">
+<div class="container">
+<h2 class="seccion-titulo">Tips & Tricks</h2>
+<div class="card">
+<div class="card-header">
+// SOBRE_PROGRAMACIÓN
+</div>
+<ul class="list-group list-group-flush">
+<a href="" target="_blank"><li class="list-group-item">01. La doble compilación</li></a>
+<a href="" target="_blank"><li class="list-group-item">02. Cómo pasar programación sin programar</li></a>
+<a href="https://www.youtube.com/watch?v=i_cVJgIz_Cs" target="_blank"><li class="list-group-item">03. No te olvides de poner el Where en el Delete</li></a>
+<a href="https://www.elladodelmal.com/2013/08/como-ser-hacker-o-como-aprender-hacking.html" target="_blank"><li class="list-group-item">04. Cómo ser hacker (Guía Real)</li></a>
+</ul>
+</div>
+<div class="text-center">
+<a href="" target="_blank">
+<button type="button" class="btn btn-info btn-lg">MÁS TIPS <i class="bi-arrow-right-circle"></i></button>
+</a>
+</div>
+</div>
+</section>
+<section id="references" class="recomendaciones section-oscura">
+<div class="container text-center">
+<h2 class="seccion-titulo">TESTIMONIOS</h2>
+<div id="recomendaciones" class="carousel slide" data-bs-ride="carousel">
+<div class="carousel-inner" style="border: var(--borde); background: var(--blanco); color: black; padding: 2rem;">
+<div class="carousel-item active">
+<img src="./images/squirrel.png" class="rounded-circle mb-3" style="width: 100px; border: 3px solid black;" alt="...">
+<p class="h4">"¡Este código es puro cemento! Solido y funcional."</p>
+<div class="mt-3 text-uppercase fw-bold" style="background: var(--vino); color: white; display: inline-block; padding: 5px;">
+Gasparin // Fantasma
+</div>
+</div>
+<div class="carousel-item">
+<img src="./images/squirrel.png" class="rounded-circle mb-3" style="width: 100px; border: 3px solid black;" alt="...">
+<p class="h4">"Diseño que golpea la retina."</p>
+<div class="mt-3 text-uppercase fw-bold" style="background: var(--vino); color: white; display: inline-block; padding: 5px;">
+Woody // Comisario
+</div>
+</div>
+</div>
+<button class="carousel-control-prev" type="button" data-bs-target="#recomendaciones" data-bs-slide="prev">
+<span class="carousel-control-prev-icon bg-dark p-3" aria-hidden="true"></span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#recomendaciones" data-bs-slide="next">
+<span class="carousel-control-next-icon bg-dark p-3" aria-hidden="true"></span>
+</button>
+</div>
+</div>
+</section>
+<section id="contactme" class="contact" style="background: var(--gris);">
+<div class="container">
+<div class="row text-center align-items-center" style="border: var(--borde); background: white; padding: 3rem;">
+<div class="col-12 col-md-4 h2 fw-bold text-uppercase">
+Talk to me
+</div>
+<div class="col-12 col-md-4">
+¿Tienes un proyecto loco? Hablemos.
+</div>
+<div class="col-12 col-md-4">
+<button class="btn btn-info btn-lg">Enviar mensaje</button>
+</div>
+</div>
+</div>
+</section>
+<footer>
+<div class="container text-center">
+<p>© 2024 Solrac Dev. All rights reserved.</p>
+<div class="icons-sn">
+<i class="bi-github"></i>
+<i class="bi-instagram"></i>
+<i class="bi-linkedin"></i>
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
